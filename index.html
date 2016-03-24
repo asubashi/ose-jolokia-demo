@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script>
+
+        <script src="js/jolokia.js"></script>
+        <script src="js/jolokia-simple.js"></script>
+        <script src="http://code.highcharts.com/highcharts.src.js"></script>
+           
+        <script src="js/ose-jolokia.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/black-tie/jquery-ui.css"/>
+        <link rel="stylesheet" type="text/css" href="css/ose-jolokia.css"/>
+        
+    </head>
+    <title>Jolokia JMX OpenShift Monitoring</title>
+    <body>
+        <div id="inputform">
+    		<form action="ose/jolokia" id="inputForm">
+                <table>
+                    <tr>
+                        <td>OpenShift Master</td><td><input type="text" placeholder="https://master.example.com:8443" id="url" autocomplete="off" autofocus="autofocus"></td>
+                    </tr>
+                    <tr>
+                        <td>API Token</td><td><input type="text" placeholder="token" id="token" autocomplete="off" autofocus="autofocus"></td>
+                    </tr>                    
+                    <tr>
+                        <td>Namespace</td><td><input type="text" placeholder="namespace" id="namespace" autocomplete="off" autofocus="autofocus"></td>
+                    </tr>      			 
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Submit" id="submit"></td>
+                    </tr>
+                </table>
+    		</form>
+    		<div id="message" style="display:none"/>
+        </div>
+    </div>
+    
+    <!-- The template to be used for new portlets -->
+    <div style="display: none;">
+     <div class="portlet ui-widget-content ui-helper-clearfix ui-corner-all" id="portlet-template" style="">
+      <div class="portlet-header ui-widget-header ui-corner-all">
+       <span class='ui-icon ui-icon-minusthick'></span>
+       <span class="title"> </span>
+      </div>
+      <div class="portlet-content"></div>
+     </div>
+    </div>
+    
+    <!-- The template to be used for new pods -->
+    <div style="display: none;">
+     <div id="pod-template" class="p-template">
+      <div class="pod-name-container">
+          <div class="pod-name rotate"></div>
+      </div>
+      <div class="column"></div>
+     </div>
+    </div>
+    
+    <div id="dashboard"/>
+        
+    </body>
+</html>
