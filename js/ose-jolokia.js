@@ -45,18 +45,24 @@ $(function() {
             }
             );
             
-            factory.create(
+/**            factory.create(
             {
             type: 'read',
             name: 'jboss.as:subsystem=web,connector=http',
             attribute: 'requestCount'
             }
             );
-            
-            
+*/
+            factory.create(
+            {
+            type: 'read',
+            name: 'Tomcat:type=RequestProcessor,worker="http-nio-0.0.0.0-8080",name=HttpRequest1',
+            attribute: 'requestCount'
+            }
+            );
+	    
         });
-      
-        
+
     }
     
     
